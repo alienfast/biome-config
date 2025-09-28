@@ -8,12 +8,12 @@ This is a shareable Biome configuration package (`@alienfast/biome-config`) that
 
 ## Development Commands
 
-- **Build**: `yarn build:ide` - Runs TypeScript type checking (IDE support only, no compilation)
 - **Clean**: `yarn clean` - Removes build artifacts and cache files
-- **Clean Yarn**: `yarn clean:yarn` - Removes Yarn cache and Berry installation files
-- **Reset**: `yarn reset` - Comprehensive reset (runs clean, clean:yarn, then reinstalls)
-- **Check**: `yarn check` - Runs Biome check on all files (linting + formatting verification)
-- **Check & Fix**: `yarn check:fix` - Runs Biome check with auto-fix enabled
+- **Clean Yarn**: `yarn clean-yarn` - Removes Yarn cache and Berry installation files
+- **Reset**: `yarn reset` - Comprehensive reset (runs clean, clean-yarn, then reinstalls)
+- **Check**: `yarn check` - Runs both Biome and markdownlint checks (JS/TS/JSON + Markdown)
+- **Check Biome**: `yarn check-biome` - Runs Biome check on JS/TS/JSON files (linting + formatting verification)
+- **Check Markdown**: `yarn check-markdown` - Lints and formats Markdown files with markdownlint
 - **Format**: `yarn format` - Formats all files with Biome formatter
 - **Test**: `yarn test` - Alias for `yarn check` (no separate test suite)
 - **Release**: `yarn release` - Automated release using auto (version bump, changelog, publish)
@@ -22,9 +22,8 @@ This is a shareable Biome configuration package (`@alienfast/biome-config`) that
 
 ### Core Structure
 
-- **`src/index.js`** - Main entry point, exports base config as default and named presets
-- **`src/base.js`** - Universal base configuration for all JavaScript/TypeScript projects
-- **`src/react.js`** - React-specific configuration extending base with React domain rules
+- **`src/base.jsonc`** - Universal base configuration for all JavaScript/TypeScript projects
+- **`src/react.jsonc`** - React-specific configuration extending base with React domain rules
 - **`scripts/`** - Utility scripts for cleanup and maintenance
 
 ### Configuration Philosophy
@@ -36,6 +35,7 @@ The package provides modular presets using a layered approach:
 3. **Source Distribution** - Exports raw JavaScript modules directly (no build artifacts)
 
 This design allows consumers to:
+
 - Import the base config for vanilla JS/TS projects
 - Import domain-specific presets (e.g., React) for framework projects
 - Extend or override rules by merging with their own configuration
@@ -43,22 +43,26 @@ This design allows consumers to:
 ### Key Features
 
 **Formatting:**
+
 - 100 character line width
 - Single quotes, semicolons as needed
 - 2-space indentation
 - Trailing commas everywhere
 
 **Linting:**
+
 - Recommended rules enabled by default
 - Safe auto-fixes for unused imports, optional chaining, template literals
 - Exhaustive dependency checking for React hooks
 - Literal keys and double-equals enforcement
 
 **VCS Integration:**
+
 - Git-aware with `.gitignore` support
 - Default branch: `main`
 
 **Assist Features:**
+
 - Automatic import organization
 - Sorted object keys
 
@@ -95,8 +99,8 @@ All exports point directly to source files in `src/`, no build step required.
 When modifying configurations, follow these principles:
 
 1. **Rule Placement:**
-   - Universal rules → `base.js`
-   - Framework-specific rules → domain preset (e.g., `react.js`)
+   - Universal rules → `base.jsonc`
+   - Framework-specific rules → domain preset (e.g., `react.jsonc`)
 
 2. **Fix Safety:**
    - Use `"fix": "safe"` for non-destructive fixes
@@ -112,20 +116,12 @@ When modifying configurations, follow these principles:
 
 ### Extending Configurations
 
-Domain presets should extend base using object spreading:
+Domain presets should extend base configuration by importing and merging objects. Since these are JSONC files, consumers will reference them directly in their Biome configuration:
 
-```javascript
-import base from './base.js'
-
-export default {
-  ...base,
-  linter: {
-    ...(base.linter || {}),
-    domains: {
-      ...(base.linter?.domains || {}),
-      [domainName]: 'all',
-    },
-  },
+```jsonc
+{
+  "extends": ["@alienfast/biome-config/base"],
+  // Add domain-specific overrides
 }
 ```
 

@@ -1,8 +1,8 @@
 {
-	"search.exclude": {
-		"**/.yarn": true,
-		"**/.pnp.*": true
-	},
-	"eslint.useFlatConfig": true,
-	"typescript.tsdk": "node_modules/typescript/lib"
+  "eslint.useFlatConfig": true,
+  "search.exclude": {
+    "**/.pnp.*": true,
+    "**/.yarn": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

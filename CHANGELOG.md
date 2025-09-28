@@ -35,11 +35,13 @@ If migrating from a local `biome.jsonc` configuration:
 
 1. Install the package: `yarn add -D @alienfast/biome-config`
 2. Replace your `biome.jsonc` with an extends reference:
+
    ```json
    {
      "extends": ["@alienfast/biome-config/react"]
    }
    ```
+
 3. Override specific rules as needed in your local configuration
 4. Remove any redundant rules now covered by the shared config
 
