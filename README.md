@@ -1,6 +1,6 @@
 # @alienfast/biome-config
 
-Shareable Biome configuration for AlienFast projects. Provides base and React presets with formatting and linting rules.
+Shareable Biome configuration for AlienFast projects. Provides static JSONC configuration files for base and React presets with formatting and linting rules.
 
 ## Installation
 
@@ -14,66 +14,48 @@ yarn add -D @alienfast/biome-config @biomejs/biome
 
 ## Usage
 
+This package provides static JSONC configuration files that are consumed via Biome's `extends` feature. All configurations are declarative and cannot be imported programmatically.
+
 ### Base Configuration
 
 For universal JavaScript/TypeScript projects:
 
-```javascript
+```jsonc
 // biome.jsonc
-import config from '@alienfast/biome-config'
-export default config
-```
-
-Or using the explicit base export:
-
-```javascript
-// biome.jsonc
-import { base } from '@alienfast/biome-config/base'
-export default base
+{
+  "extends": ["@alienfast/biome-config"]
+}
 ```
 
 ### React Configuration
 
 For React projects (includes all base rules + React domain):
 
-```javascript
+```jsonc
 // biome.jsonc
-import config from '@alienfast/biome-config/react'
-export default config
-```
-
-Or using named import:
-
-```javascript
-// biome.jsonc
-import { react } from '@alienfast/biome-config'
-export default react
+{
+  "extends": ["@alienfast/biome-config/react"]
+}
 ```
 
 ### Overriding Rules
 
-Extend and customize the configuration:
+Customize the configuration by adding your own rules after the extends:
 
-```javascript
+```jsonc
 // biome.jsonc
-import config from '@alienfast/biome-config'
-
-export default {
-  ...config,
-  formatter: {
-    ...config.formatter,
-    lineWidth: 120, // Override line width
+{
+  "extends": ["@alienfast/biome-config"],
+  "formatter": {
+    "lineWidth": 120 // Override line width
   },
-  linter: {
-    ...config.linter,
-    rules: {
-      ...config.linter.rules,
-      suspicious: {
-        ...config.linter.rules.suspicious,
-        noExplicitAny: 'error', // Re-enable explicit any check
-      },
-    },
-  },
+  "linter": {
+    "rules": {
+      "suspicious": {
+        "noExplicitAny": "error" // Re-enable explicit any check
+      }
+    }
+  }
 }
 ```
 
@@ -118,13 +100,13 @@ Extends base configuration with:
 If migrating from a local `biome.jsonc`:
 
 1. Install this package
-2. Replace `biome.jsonc` with import statement (see Usage)
-3. Move any custom overrides into the spread pattern
-4. Remove local configuration file once tested
+2. Replace your configuration with the `extends` syntax (see Usage)
+3. Move any custom overrides to the root level of your configuration
+4. Test the configuration and remove unnecessary local rules
 
 Example migration:
 
-```javascript
+```jsonc
 // Before (local biome.jsonc)
 {
   "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
@@ -133,8 +115,9 @@ Example migration:
 }
 
 // After (using shared config)
-import config from '@alienfast/biome-config'
-export default config
+{
+  "extends": ["@alienfast/biome-config"]
+}
 ```
 
 ## Contributing
