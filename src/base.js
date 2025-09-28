@@ -1,0 +1,94 @@
+/**
+ * Base Biome configuration for universal JavaScript/TypeScript projects.
+ * Includes formatting, VCS integration, assist settings, and base linter rules.
+ */
+export default {
+	$schema: "https://biomejs.dev/schemas/2.2.4/schema.json",
+	assist: {
+		actions: { source: { organizeImports: "on", useSortedKeys: "on" } },
+		enabled: true,
+	},
+	files: {
+		ignoreUnknown: false,
+	},
+	formatter: {
+		enabled: true,
+		indentStyle: "space",
+		indentWidth: 2,
+		lineWidth: 100,
+	},
+	javascript: {
+		formatter: {
+			bracketSameLine: false,
+			bracketSpacing: true,
+			quoteStyle: "single",
+			semicolons: "asNeeded",
+			trailingCommas: "all",
+		},
+		globals: [],
+	},
+	linter: {
+		domains: {
+			project: "all",
+			test: "all",
+		},
+		rules: {
+			complexity: {
+				useLiteralKeys: {
+					fix: "safe",
+					level: "error",
+					options: {},
+				},
+				useOptionalChain: {
+					fix: "safe",
+					level: "error",
+					options: {},
+				},
+			},
+			correctness: {
+				noUnusedFunctionParameters: {
+					fix: "safe",
+					level: "error",
+					options: {
+						ignoreRestSiblings: true,
+					},
+				},
+				noUnusedImports: {
+					fix: "safe",
+					level: "error",
+					options: {},
+				},
+				noUnusedVariables: {
+					fix: "unsafe",
+					level: "error",
+					options: {
+						ignoreRestSiblings: true,
+					},
+				},
+				useExhaustiveDependencies: {
+					fix: "safe",
+					level: "error",
+					options: {},
+				},
+			},
+			recommended: true,
+			style: {
+				useTemplate: { fix: "safe", level: "error", options: {} },
+			},
+			suspicious: {
+				noDoubleEquals: {
+					fix: "safe",
+					level: "error",
+					options: {},
+				},
+				noExplicitAny: "off",
+			},
+		},
+	},
+	vcs: {
+		clientKind: "git",
+		defaultBranch: "main",
+		enabled: true,
+		useIgnoreFile: true,
+	},
+};

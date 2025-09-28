@@ -1,0 +1,12 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"extends": "@alienfast/tsconfig/nodenext.json",
+	// don't include root, or scripts to test real world usage
+	"compilerOptions": {
+		"noEmit": true,
+		"allowJs": true,
+		"outDir": "dist"
+	},
+	"include": ["src"],
+	"exclude": ["node_modules", "dist"]
+}
