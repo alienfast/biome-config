@@ -1,3 +1,22 @@
+# v1.0.1 (Sun Sep 28 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Kevin Ross ([@rosskevin](https://github.com/rosskevin)), for all your work!
+
+#### ⚠️ Pushed to `main`
+
+- cleanup and refactor settings to prenvent duplication ([@rosskevin](https://github.com/rosskevin))
+- Convert to static JSONC configuration files ([@rosskevin](https://github.com/rosskevin))
+- Convert configuration from JS to JSONC format ([@rosskevin](https://github.com/rosskevin))
+- Initial biome-config implementation ([@rosskevin](https://github.com/rosskevin))
+
+#### Authors: 1
+
+- Kevin Ross ([@rosskevin](https://github.com/rosskevin))
+
+---
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
