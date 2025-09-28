@@ -4,7 +4,12 @@
     "canary": {
       "target": "comment"
     },
-    "plugins": ["npm", "all-contributors", "first-time-contributor", "released"]
+    "plugins": [
+      "npm",
+      "all-contributors",
+      "first-time-contributor",
+      "released"
+    ]
   },
   "description": "AlienFast's Biome config.",
   "devDependencies": {
@@ -57,5 +62,5 @@
     "test": "yarn check"
   },
   "type": "module",
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
