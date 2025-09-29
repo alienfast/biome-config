@@ -1,3 +1,15 @@
+# v1.0.3 (Mon Sep 29 2025)
+
+#### ⚠️ Pushed to `main`
+
+- fix exports, recreate from what was working in js ([@rosskevin](https://github.com/rosskevin))
+
+#### Authors: 1
+
+- Kevin Ross ([@rosskevin](https://github.com/rosskevin))
+
+---
+
 # v1.0.2 (Mon Sep 29 2025)
 
 #### ⚠️ Pushed to `main`
