@@ -32,35 +32,41 @@
       "complexity": {
         "useLiteralKeys": {
           "fix": "safe",
-          "level": "error"
+          "level": "error",
+          "options": {}
         },
         "useOptionalChain": {
           "fix": "safe",
-          "level": "error"
+          "level": "error",
+          "options": {}
         }
       },
       "correctness": {
         "noUnusedFunctionParameters": {
           "fix": "safe",
-          "level": "error"
+          "level": "error",
+          "options": {}
         },
         "noUnusedImports": {
           "fix": "safe",
-          "level": "error"
+          "level": "error",
+          "options": {}
         },
         "noUnusedVariables": {
           "fix": "unsafe",
-          "level": "error"
+          "level": "error",
+          "options": {}
         }
       },
       "recommended": true,
       "style": {
-        "useTemplate": { "fix": "safe", "level": "error" }
+        "useTemplate": { "fix": "safe", "level": "error", "options": {} }
       },
       "suspicious": {
         "noDoubleEquals": {
           "fix": "safe",
-          "level": "error"
+          "level": "error",
+          "options": {}
         },
         "noExplicitAny": "off"
       }
