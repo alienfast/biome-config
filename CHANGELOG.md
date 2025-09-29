@@ -1,3 +1,17 @@
+# v1.0.2 (Mon Sep 29 2025)
+
+#### ⚠️ Pushed to `main`
+
+- local biome version was incorrect ([@rosskevin](https://github.com/rosskevin))
+- fix bad key ([@rosskevin](https://github.com/rosskevin))
+- don’t have react extend base ([@rosskevin](https://github.com/rosskevin))
+
+#### Authors: 1
+
+- Kevin Ross ([@rosskevin](https://github.com/rosskevin))
+
+---
+
 # v1.0.1 (Sun Sep 28 2025)
 
 :tada: This release contains work from a new contributor! :tada:
