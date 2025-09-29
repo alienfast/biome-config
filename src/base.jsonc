@@ -5,7 +5,7 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
   "assist": {
-    "actions": { "source": { "useSortedKeys": "on" } },
+    "actions": { "source": { "organizeImports": "on", "useSortedKeys": "on" } },
     "enabled": true
   },
   "files": {
@@ -28,48 +28,84 @@
     "globals": []
   },
   "linter": {
+    "domains": {
+      // "next": "all",  // separate config
+      // "react": "all", // separate config
+      "project": "all",
+      "test": "all"
+    },
     "rules": {
       "complexity": {
         "useLiteralKeys": {
           "fix": "safe",
-          "level": "error"
+          "level": "error",
+          "options": {}
         },
         "useOptionalChain": {
           "fix": "safe",
-          "level": "error"
+          "level": "error",
+          "options": {}
         }
       },
       "correctness": {
         "noUnusedFunctionParameters": {
           "fix": "safe",
-          "level": "error"
+          "level": "error",
+          "options": {
+            "ignoreRestSiblings": true
+          }
         },
         "noUnusedImports": {
           "fix": "safe",
-          "level": "error"
+          "level": "error",
+          "options": {}
         },
+        // enable this once to mark all _log usages and then disable it again
         "noUnusedVariables": {
-          "fix": "unsafe",
-          "level": "error"
+          "fix": "unsafe", // don't modify them to underscore, we want to remove them
+          "level": "error",
+          "options": {
+            "ignoreRestSiblings": true
+          }
         }
       },
       "recommended": true,
+
       "style": {
-        "useTemplate": { "fix": "safe", "level": "error" }
+        // "useConst": "error" },
+        "useTemplate": { "fix": "safe", "level": "error", "options": {} }
       },
       "suspicious": {
         "noDoubleEquals": {
           "fix": "safe",
-          "level": "error"
+          "level": "error",
+          "options": {}
         },
-        "noExplicitAny": "off"
+        "noExplicitAny": "off" // too noisy in some places, we can enable it later
       }
+      // sample repo
+      // "suspicious": {
+      //   "noUnknownAtRules": "off" // required for tailwind?
+      // },
+      // "correctness": {
+      //   /**
+      //    * To allow this, we would first need to get rid of TS project references,
+      //    * because it allows noEmit set to true, which is not compatible with references.
+      //    */
+      //   "useImportExtensions": "off"
+      // },
+      // "nursery": {
+      //   /**
+      //    * Nursery function are unstable and need to be activated explicitly
+      //    */
+      //   "noFloatingPromises": "error",
+      //   "noImportCycles": "error",
+      //   "noMisusedPromises": "error",
+      //   "noUnnecessaryConditions": "error",
+      //   // "noUnresolvedImports": "error", // Doesn't seem to understand node: prefix
+      //   "useExhaustiveSwitchCases": "error"
+      // }
     }
   },
-  "vcs": {
-    "clientKind": "git",
-    "defaultBranch": "main",
-    "enabled": true,
-    "useIgnoreFile": true
-  }
+  "vcs": { "clientKind": "git", "defaultBranch": "main", "enabled": true, "useIgnoreFile": true }
 }

@@ -2,7 +2,21 @@
   "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
   "linter": {
     "domains": {
-      "react": "recommended"
+      "react": "all"
+    },
+    "rules": {
+      "correctness": {
+        "useExhaustiveDependencies": {
+          "fix": "safe",
+          "level": "error",
+          "options": {}
+        },
+        // this wants us to use React useId, and we have 33.  Let's ignore for now.
+        "useUniqueElementIds": {
+          "level": "off",
+          "options": {}
+        }
+      }
     }
   }
 }

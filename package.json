@@ -29,16 +29,10 @@
     "node": ">=22"
   },
   "exports": {
-    ".": {
-      "import": "./src/base.jsonc"
-    },
-    "./base": {
-      "import": "./src/base.jsonc"
-    },
+    ".": "./src/base.jsonc",
+    "./base": "./src/base.jsonc",
     "./package.json": "./package.json",
-    "./react": {
-      "import": "./src/react.jsonc"
-    }
+    "./react": "./src/react.jsonc"
   },
   "license": "MIT",
   "name": "@alienfast/biome-config",
