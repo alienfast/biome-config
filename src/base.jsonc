@@ -4,7 +4,7 @@
  */
 {
   "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
-  "assists": {
+  "assist": {
     "actions": { "source": { "useSortedKeys": "on" } },
     "enabled": true
   },
