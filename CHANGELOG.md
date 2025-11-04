@@ -1,3 +1,15 @@
+# v1.0.4 (Tue Nov 04 2025)
+
+#### ⚠️ Pushed to `main`
+
+- react updates ([@rosskevin](https://github.com/rosskevin))
+
+#### Authors: 1
+
+- Kevin Ross ([@rosskevin](https://github.com/rosskevin))
+
+---
+
 # v1.0.3 (Mon Sep 29 2025)
 
 #### ⚠️ Pushed to `main`
