@@ -5,6 +5,13 @@
       "react": "all"
     },
     "rules": {
+      "complexity": {
+        "noUselessFragments": {
+          "fix": "safe",
+          "level": "error",
+          "options": {}
+        }
+      },
       "correctness": {
         "useExhaustiveDependencies": {
           "fix": "safe",
@@ -16,6 +23,9 @@
           "level": "off",
           "options": {}
         }
+      },
+      "style": {
+        "useComponentExportOnlyModules": "off"
       }
     }
   }
