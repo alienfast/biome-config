@@ -1,3 +1,16 @@
+# v1.0.5 (Thu May 28 2026)
+
+#### ⚠️ Pushed to `main`
+
+- revert lineWidth, it is code only ([@rosskevin](https://github.com/rosskevin))
+- ncu, fix comment lineWidth ([@rosskevin](https://github.com/rosskevin))
+
+#### Authors: 1
+
+- Kevin Ross ([@rosskevin](https://github.com/rosskevin))
+
+---
+
 # v1.0.4 (Tue Nov 04 2025)
 
 #### ⚠️ Pushed to `main`
