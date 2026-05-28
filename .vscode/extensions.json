@@ -1,8 +1,3 @@
 {
-  "recommendations": [
-    "arcanis.vscode-zipfs",
-    "DavidAnson.vscode-markdownlint",
-    "yoavbls.pretty-ts-errors",
-    "biomejs.biome"
-  ]
+  "recommendations": ["DavidAnson.vscode-markdownlint", "yoavbls.pretty-ts-errors", "biomejs.biome"]
 }
