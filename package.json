@@ -5,7 +5,12 @@
       "target": "comment"
     },
     "plugins": [
-      "npm",
+      [
+        "npm",
+        {
+          "setRcToken": false
+        }
+      ],
       "all-contributors",
       "first-time-contributor",
       "released"
@@ -21,6 +26,7 @@
     "auto": "^11.3.6",
     "execa": "^9.6.1",
     "markdownlint-cli": "^0.48.0",
+    "npm-run-all": "^4.1.5",
     "rimraf": "^6.1.3",
     "tsx": "^4.22.3",
     "typescript": "^6.0.3"
@@ -36,24 +42,30 @@
   },
   "license": "MIT",
   "name": "@alienfast/biome-config",
-  "packageManager": "yarn@4.9.4",
+  "packageManager": "pnpm@10.33.0",
   "peerDependencies": {
     "@biomejs/biome": "*"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@biomejs/biome",
+      "esbuild"
+    ]
+  },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "access": "public"
   },
   "repository": "https://github.com/alienfast/biome-config",
   "scripts": {
-    "check": "yarn check-biome && yarn check-markdown",
+    "check": "run-p -c --aggregate-output check-biome check-markdown",
     "check-biome": "biome check --write .",
     "check-markdown": "markdownlint '**/*.md' --fix",
     "clean": "tsx ./scripts/clean.ts",
-    "clean:yarn": "tsx ./scripts/clean-yarn.ts",
+    "clean:pnpm": "tsx ./scripts/clean-pnpm.ts",
     "format": "biome format --write .",
-    "release": "yarn auto shipit",
+    "release": "pnpm auto shipit",
     "reset": "tsx ./scripts/reset.ts",
-    "test": "yarn check"
+    "test": "pnpm check"
   },
   "type": "module",
   "version": "1.0.5"

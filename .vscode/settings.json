@@ -1,8 +1,34 @@
 {
-  "eslint.useFlatConfig": true,
-  "search.exclude": {
-    "**/.pnp.*": true,
-    "**/.yarn": true
+  "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports.biome": "explicit"
+    },
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
   },
+  "[markdown]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.markdownlint": "explicit"
+    },
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "editor.formatOnSave": true,
+    "files.trimTrailingWhitespace": false
+  },
+  "biome.lsp.bin": "./node_modules/@biomejs/biome/bin/biome",
+  "editor.codeActionsOnSave": {
+    "source.action.useSortedKeys.biome": "explicit",
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
+  "search.followSymlinks": false,
   "typescript.tsdk": "node_modules/typescript/lib"
 }

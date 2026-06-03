@@ -1,11 +1,5 @@
 *.log
 tmp
-/dist
-tsconfig.tsbuildinfo
-
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/releases
-
+dist
 node_modules
+*.tsbuildinfo

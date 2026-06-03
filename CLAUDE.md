@@ -8,15 +8,15 @@ This is a shareable Biome configuration package (`@alienfast/biome-config`) that
 
 ## Development Commands
 
-- **Clean**: `yarn clean` - Removes build artifacts and cache files
-- **Clean Yarn**: `yarn clean-yarn` - Removes Yarn cache and Berry installation files
-- **Reset**: `yarn reset` - Comprehensive reset (runs clean, clean-yarn, then reinstalls)
-- **Check**: `yarn check` - Runs both Biome and markdownlint checks (JS/TS/JSON + Markdown)
-- **Check Biome**: `yarn check-biome` - Runs Biome check on JS/TS/JSON files (linting + formatting verification)
-- **Check Markdown**: `yarn check-markdown` - Lints and formats Markdown files with markdownlint
-- **Format**: `yarn format` - Formats all files with Biome formatter
-- **Test**: `yarn test` - Alias for `yarn check` (no separate test suite)
-- **Release**: `yarn release` - Automated release using auto (version bump, changelog, publish)
+- **Clean**: `pnpm clean` - Removes build artifacts and cache files
+- **Clean pnpm**: `pnpm clean:pnpm` - Removes `node_modules`/lockfile and prunes the pnpm store
+- **Reset**: `pnpm reset` - Comprehensive reset (runs clean, clean:pnpm, then reinstalls)
+- **Check**: `pnpm check` - Runs Biome and markdownlint checks in parallel (JS/TS/JSON + Markdown)
+- **Check Biome**: `pnpm check-biome` - Runs Biome check on JS/TS/JSON files (linting + formatting verification)
+- **Check Markdown**: `pnpm check-markdown` - Lints and formats Markdown files with markdownlint
+- **Format**: `pnpm format` - Formats all files with Biome formatter
+- **Test**: `pnpm test` - Alias for `pnpm check` (no separate test suite)
+- **Release**: `pnpm release` - Automated release using auto (version bump, changelog, publish)
 
 ## Architecture
 
@@ -86,9 +86,9 @@ All exports point directly to source files in `src/`, no build step required.
 
 ## Package Management
 
-- Uses Yarn 4.9.4 with package manager enforcement
+- Uses pnpm 10.x with package manager enforcement (`packageManager` field + Corepack)
 - ESM-only package (`"type": "module"`)
-- Publishes to GitHub Packages registry
+- Publishes to two registries: the public npm registry (primary, via OIDC Trusted Publishing with provenance) and GitHub Packages (secondary mirror, via the `GH_TOKEN` PAT)
 - Node.js >= 22 required
 - Biome as peer dependency (consumer must install)
 
@@ -130,7 +130,7 @@ Domain presets should extend base configuration by importing and merging objects
 Always specify the Biome schema version in base configuration:
 
 ```javascript
-$schema: 'https://biomejs.dev/schemas/2.2.4/schema.json'
+$schema: 'https://biomejs.dev/schemas/2.4.16/schema.json'
 ```
 
 Update this when upgrading Biome versions.
@@ -148,13 +148,14 @@ This package uses [auto](https://intuit.github.io/auto/) for automated releases.
 ### Release Steps
 
 1. Commit changes with conventional commit messages
-2. Run `yarn release`
+2. Run `pnpm release` (CI runs this automatically on push to `main` via the `build` workflow)
 3. Auto will:
    - Determine version bump from commit messages
    - Generate changelog
    - Create Git tag
-   - Publish to GitHub Packages
+   - Publish to the public npm registry (OIDC Trusted Publishing, with provenance)
    - Update contributors
+4. A follow-up CI step mirrors the same version to GitHub Packages using `GH_TOKEN`
 
 ### Commit Message Format
 

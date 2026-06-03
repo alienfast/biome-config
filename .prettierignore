@@ -1,7 +1,0 @@
-packages/*/lib
-./build
-*.snap
-packages/build/test
-packages/build/cra
-tmp
-.storybook-out

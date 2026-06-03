@@ -8,8 +8,8 @@ Shareable Biome configuration for AlienFast projects. Provides static JSONC conf
 # npm
 npm install --save-dev @alienfast/biome-config @biomejs/biome
 
-# yarn
-yarn add -D @alienfast/biome-config @biomejs/biome
+# pnpm
+pnpm add -D @alienfast/biome-config @biomejs/biome
 ```
 
 ## Usage
