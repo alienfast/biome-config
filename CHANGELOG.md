@@ -1,3 +1,15 @@
+# v1.0.6 (Wed Jun 03 2026)
+
+#### ⚠️ Pushed to `main`
+
+- fix: migrate tooling to pnpm + OIDC npm publishing ([@rosskevin](https://github.com/rosskevin))
+
+#### Authors: 1
+
+- Kevin Ross ([@rosskevin](https://github.com/rosskevin))
+
+---
+
 # v1.0.5 (Thu May 28 2026)
 
 #### ⚠️ Pushed to `main`
