@@ -1,0 +1,16 @@
+{
+  // Single source of truth read identically by the CLI (check-markdown script) and the VS Code markdownlint extension.
+  // The in-editor extension reads only the `ignores` below, not a separate .markdownlintignore — keeping them here
+  // avoids the gap where editor-only lint warnings (e.g. on tmp/ scratch files) leak into context. No `globs` key on
+  // purpose: callers pass their own targets, so explicit-file runs stay scoped.
+  "config": {
+    "default": true,
+    // MD013 (line-length): we wrap prose at ~160, not 80.
+    "MD013": false,
+    // MD024 (no-duplicate-heading): repeated section names are intentional.
+    "MD024": false,
+    // MD060 (table-column-style): default-on in markdownlint 0.40 with no auto-fixer, so --fix can never repair it. Cosmetic; off.
+    "MD060": false
+  },
+  "ignores": ["**/node_modules/**", "**/CHANGELOG.md", "tmp/**"]
+}
