@@ -1,3 +1,15 @@
+# v1.0.7 (Fri Jun 26 2026)
+
+#### 🐛 Bug Fix
+
+- chore: standardize tooling — pnpm 11, supply-chain cooldown, markdown… [#1](https://github.com/alienfast/biome-config/pull/1) ([@rosskevin](https://github.com/rosskevin))
+
+#### Authors: 1
+
+- Kevin Ross ([@rosskevin](https://github.com/rosskevin))
+
+---
+
 # v1.0.6 (Wed Jun 03 2026)
 
 #### ⚠️ Pushed to `main`
